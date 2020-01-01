@@ -19,6 +19,11 @@ let cardValueTwo = 0;
 
 let sign = document.getElementById("win");
 
+let aces = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
+
+let decklength = aces.length;
+console.log(decklength);
+
 function winning() {
   /// if card 1 bigger show >
   /// if card 2 bigger show <
@@ -41,39 +46,29 @@ function winning() {
 
 function cardOneFlip() {
   // rndm number between 1 and 5
-  let x = Math.floor(Math.random() * 5) + 1;
+  let x = Math.floor(Math.random() * 13) + 1;
   console.log(x);
-  c1.innerHTML = x;
+  c1.innerHTML = aces[x - 1];
   cardValueOne = x;
   winning();
 }
 
 function cardTwoFlip() {
-  let y = Math.floor(Math.random() * 5) + 1;
+  let y = Math.floor(Math.random() * 13) + 1;
   console.log(y);
-  c2.innerHTML = y;
+  c2.innerHTML = aces[y - 1];
   cardValueTwo = y;
   winning();
 }
 
 function flipBoth() {
-  let a = Math.floor(Math.random() * 6) + 1;
-  let b = Math.floor(Math.random() * 6) + 1;
+  let a = Math.floor(Math.random() * 13) + 1;
+  let b = Math.floor(Math.random() * 13) + 1;
   console.log(a);
   console.log(b);
-  c1.innerHTML = a;
+  c1.innerHTML = aces[a - 1];
   cardValueOne = a;
-  c2.innerHTML = b;
+  c2.innerHTML = aces[b - 1];
   cardValueTwo = b;
   winning();
-  if (a === b) {
-    console.log("tie");
-    return "it's a tie";
-  } else if (a > b) {
-    console.log("card 1");
-    return "Card One Wins";
-  } else {
-    console.log("card 2");
-    return "Card Two Wins";
-  }
 }
