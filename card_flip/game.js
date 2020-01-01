@@ -10,6 +10,9 @@ console.log("testing");
 // show which is bogger
 // show card value
 // animate show card
+// currently playing with unli mited decks
+// how to limit to multiples of 52?
+// lets limit it to one to start
 
 let c1 = document.getElementById("cardOne");
 let c2 = document.getElementById("cardTwo");
