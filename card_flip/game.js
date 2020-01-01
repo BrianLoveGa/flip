@@ -56,22 +56,24 @@ function cardTwoFlip() {
   winning();
 }
 
-// function flipBoth() {
-//   let a = Math.floor(Math.random() * 6) + 1;
-//   let b = Math.floor(Math.random() * 6) + 1;
-//   console.log(a);
-//   console.log(b);
-//   c1.innerHTML = a;
-//   c2.innerHTML = b;
-//   winning();
-//   if (a === b) {
-//     console.log("tie");
-//     return "it's a tie";
-//   } else if (a > b) {
-//     console.log("card 1");
-//     return "Card One Wins";
-//   } else {
-//     console.log("card 2");
-//     return "Card Two Wins";
-//   }
-// }
+function flipBoth() {
+  let a = Math.floor(Math.random() * 6) + 1;
+  let b = Math.floor(Math.random() * 6) + 1;
+  console.log(a);
+  console.log(b);
+  c1.innerHTML = a;
+  cardValueOne = a;
+  c2.innerHTML = b;
+  cardValueTwo = b;
+  winning();
+  if (a === b) {
+    console.log("tie");
+    return "it's a tie";
+  } else if (a > b) {
+    console.log("card 1");
+    return "Card One Wins";
+  } else {
+    console.log("card 2");
+    return "Card Two Wins";
+  }
+}
