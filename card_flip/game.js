@@ -19,10 +19,25 @@ let cardValueTwo = 0;
 
 let sign = document.getElementById("win");
 
-let aces = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
-
-let decklength = aces.length;
-console.log(decklength);
+let value = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+let spades = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
+let hearts = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
+let clubs = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
+let diamonds = [
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+  "7",
+  "8",
+  "9",
+  "10",
+  "J",
+  "Q",
+  "K",
+  "A"
+];
 
 function winning() {
   /// if card 1 bigger show >
@@ -45,30 +60,47 @@ function winning() {
 }
 
 function cardOneFlip() {
-  // rndm number between 1 and 5
-  let x = Math.floor(Math.random() * 13) + 1;
+  // rndm number between 1 and 52
+  let x = Math.floor(Math.random() * 52) + 1;
   console.log(x);
-  c1.innerHTML = aces[x - 1];
-  cardValueOne = x;
+  if (x <= 13) {
+    c1.innerHTML = "Spade " + spades[x - 1];
+    cardValueOne = value[x - 1];
+  } else if (x >= 14 && x <= 26) {
+    c1.innerHTML = "Heart " + hearts[x - 14];
+    cardValueOne = value[x - 14];
+  } else if (x >= 27 && x <= 39) {
+    c1.innerHTML = "Club " + clubs[x - 27];
+    cardValueOne = value[x - 27];
+  } else {
+    c1.innerHTML = "Diamond " + diamonds[x - 40];
+    cardValueOne = value[x - 40];
+  }
+
   winning();
 }
 
 function cardTwoFlip() {
-  let y = Math.floor(Math.random() * 13) + 1;
+  let y = Math.floor(Math.random() * 52) + 1;
   console.log(y);
-  c2.innerHTML = aces[y - 1];
-  cardValueTwo = y;
+  if (y <= 13) {
+    c2.innerHTML = "Spade " + spades[y - 1];
+    cardValueTwo = value[y - 1];
+  } else if (y >= 14 && y <= 26) {
+    c2.innerHTML = "Heart " + hearts[y - 14];
+    cardValueTwo = value[y - 14];
+  } else if (y >= 27 && y <= 39) {
+    c2.innerHTML = "Club " + clubs[y - 27];
+    cardValueTwo = value[y - 27];
+  } else {
+    c2.innerHTML = "Diamond " + diamonds[y - 40];
+    cardValueTwo = value[y - 40];
+  }
+
   winning();
 }
 
 function flipBoth() {
-  let a = Math.floor(Math.random() * 13) + 1;
-  let b = Math.floor(Math.random() * 13) + 1;
-  console.log(a);
-  console.log(b);
-  c1.innerHTML = aces[a - 1];
-  cardValueOne = a;
-  c2.innerHTML = aces[b - 1];
-  cardValueTwo = b;
-  winning();
+  cardOneFlip();
+  cardTwoFlip();
 }
