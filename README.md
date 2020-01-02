@@ -3,8 +3,7 @@
 flip the card game
 *****
 
-designed for screen width of 450 px or bigger
-
+Designed for screen width of 480 px or bigger.
 
 Making a game where you can flip one card at a time or both.
 
